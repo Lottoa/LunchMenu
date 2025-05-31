@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>점심메뉴 룰렛</title>
 
+  <!-- Favicon & App Icons -->
+  <link rel="icon" href="icon.png" />
+  <link rel="apple-touch-icon" href="icon.png" />
+
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="LunchMenu - 점심 메뉴 룰렛" />
   <meta property="og:description" content="간편하게 점심 메뉴를 랜덤으로 추천해주는 룰렛 앱" />
-  <meta property="og:image" content="/og_image.png" />
+  <meta property="og:image" content="og_image.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lottoa.github.io/LunchMenu/" />
 
   <!-- PWA Manifest -->
-  <link rel="manifest" href="/manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#268bd2" />
 
   <style>
@@ -231,7 +235,7 @@
           ctx.fillStyle = "#FFD633";
           ctx.fill();
         } else {
-          ctx.fillStyle = `hsl(${(i * 360) / menuItems.length}, 70%, 70%`;
+          ctx.fillStyle = `hsl(${(i * 360) / menuItems.length}, 70%, 70%)`;
           ctx.fill();
           ctx.lineWidth = 1;
           ctx.strokeStyle = "#fff";
@@ -313,7 +317,7 @@
       const anglePerSlice = 360 / menuItems.length;
       const randomTarget = Math.floor(Math.random() * menuItems.length);
       const currentNorm = ((currentRotation % 360) + 360) % 360;
-      let finalCentered = 270 - (randomTarget + 0.5) * anglePerSlice;
+      let finalCentered = 270 - (randomTarget + 0.5) * anglePerSuite;
       finalCentered = (finalCentered + 360) % 360;
       const delta = ((finalCentered - currentNorm + 360) % 360) + 360 * 5;
       const targetRotation = currentRotation + delta;
@@ -356,7 +360,7 @@
     // Service Worker 등록
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => console.error('SW 등록 실패:', err));
+        navigator.serviceWorker.register('sw.js').catch(err => console.error('SW 등록 실패:', err));
       });
     }
   </script>
