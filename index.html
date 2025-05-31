@@ -16,8 +16,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lottoa.github.io/LunchMenu/" />
 
-  <!-- PWA Mainfest -->
-  <link rel="mainfest" href="mainfest.json" />
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="mainfest.json" />
   <meta name="theme-color" content="#268bd2" />
 
   <style>
@@ -317,7 +317,7 @@
       const anglePerSlice = 360 / menuItems.length;
       const randomTarget = Math.floor(Math.random() * menuItems.length);
       const currentNorm = ((currentRotation % 360) + 360) % 360;
-      let finalCentered = 270 - (randomTarget + 0.5) * anglePerSuite;
+      let finalCentered = 270 - (randomTarget + 0.5) * anglePerSlice;
       finalCentered = (finalCentered + 360) % 360;
       const delta = ((finalCentered - currentNorm + 360) % 360) + 360 * 5;
       const targetRotation = currentRotation + delta;
@@ -360,7 +360,7 @@
     // Service Worker 등록
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js').catch(err => console.error('SW 등록 실패:', err));
+        navigator.serviceWorker.register('./sw.js').catch(err => console.error('SW 등록 실패:', err));
       });
     }
   </script>
