@@ -5,7 +5,7 @@ const urlsToCache = [
   '/index.html',
   '/icon.png',
   '/og_image.png',
-  '/manifest.json',
+  '/mainfest.json',
   '/sw.js',
   'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'
 ];
